@@ -52,7 +52,7 @@ public class PollService {
     public PagedResponse<PollResponse> getAllPolls(UserPrincipal currentUser, int page, int size) {
         validatePageNumberAndSize(page,size);
         //获取polls
-        Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, "createAt");
+        Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, "createdAt");
         Page<Poll> polls = pollRepository.findAll(pageable);
         if (polls.getNumberOfElements()==0){
             return new PagedResponse<>(Collections.emptyList(),polls.getNumber(),

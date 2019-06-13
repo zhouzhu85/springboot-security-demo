@@ -7,6 +7,7 @@ import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class Poll extends UserDateAudit {
     @BatchSize(size = 30)
     private List<Choice> choices=new ArrayList<>();
 
-    @NotBlank
+    @NotNull
     private Instant expirationDateTime;
 
     public Long getId() {
